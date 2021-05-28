@@ -429,7 +429,8 @@ def main():
         args.gpu = 0
         args.world_size = 1
 
-    args.device = torch.device('cuda', args.gpu)
+    #args.device = torch.device('cuda', args.gpu)
+    args.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s -   %(message)s",
